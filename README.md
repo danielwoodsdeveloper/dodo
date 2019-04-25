@@ -34,15 +34,15 @@ The simplest way to run **Dodo** is to issue:
 
 ## API
 
-| Function                    | URL            | Method | Request                              | Normal Response                |
-| --------------------------- | -------------- | :----: | ------------------------------------ | ------------------------------ |
-| Store new document          | /store         |  PUT   | JSON you wish to store.              | ```{"id": ID}``` and HTTP 200. |
-| Get stored document         | /document/{id} |  GET   | Nil.                                 | Stored JSON and HTTP 200.      |
-| Modify stored document      | /document/{id} |  POST  | New JSON document.                   | HTTP 200.                      |
-| Delete stored document      | /document/{id} | DELETE | Nil.                                 | HTTP 200.                      |
-| Get all stored documents    | /all           |  GET   | Nil.                                 | All stored JSON and HTTP 200.  |
-| Delete all stored documents | /all           | DELETE | Nil.                                 | HTTP 200.                      |
-| Generate JWT.               | /authenticate  |  POST  | ```{"username": u, "password": p}``` | ```{"jwt": JWT}```             |
+| Function                    | URL            | Method | Request                              | Normal Response                  |
+| --------------------------- | -------------- | :----: | ------------------------------------ | -------------------------------- |
+| Store new document          | /store         |  PUT   | JSON you wish to store.              | ```{"id": ID}``` and HTTP 200.   |
+| Get stored document         | /document/{id} |  GET   | Nil.                                 | Stored JSON and HTTP 200.        |
+| Modify stored document      | /document/{id} |  POST  | New JSON document.                   | HTTP 200.                        |
+| Delete stored document      | /document/{id} | DELETE | Nil.                                 | HTTP 200.                        |
+| Get all stored documents    | /all           |  GET   | Nil.                                 | All stored JSON and HTTP 200.    |
+| Delete all stored documents | /all           | DELETE | Nil.                                 | HTTP 200.                        |
+| Generate JWT.               | /authenticate  |  POST  | ```{"username": u, "password": p}``` | ```{"jwt": JWT}``` and HTTP 200. |
 
 ## Authentication and Authorisation
 
