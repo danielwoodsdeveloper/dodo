@@ -32,6 +32,15 @@ The simplest way to run **Dodo** is to issue:
 
 ```go run main.go```
 
+### Docker Hub
+**Dodo** is available on Docker Hub. You can pull it by issuing:
+
+```docker pull danielwoodsdeveloper/dodo```
+
+You can then run it:
+
+```docker run -d -p 6060:6060 -v dodo_data:/store danielwoodsdeveloper/dodo```
+
 ## API
 
 | Function                    | URL            | Method | Request                              | Normal Response                  |
