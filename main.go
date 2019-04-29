@@ -138,7 +138,9 @@ func getAllDocuments(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		m[i] = d
+		o := map[string]interface{}{"id": strings.Replace(file.Name(), ".json", "", 1), "document": d}
+
+		m[i] = o
 	}
 	
 	js, err := json.Marshal(m)
@@ -233,6 +235,13 @@ func getJWT(w http.ResponseWriter, r *http.Request) {
 // Middleware that validates JWT
 func authenticate(next http.HandlerFunc) http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		tmp, _ := os.LookupEnv("JWT_REQUIRED")
+		if tmp == "FALSE" {
+			// No JWT required, so bypass middleware
+			next.ServeHTTP(w, r)
+			return
+		}
+
 		auth := r.Header.Get("authorization")
 		if auth == "" {
 			http.Error(w, "Could not find an authorization header.", http.StatusBadRequest)
