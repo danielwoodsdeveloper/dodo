@@ -49,7 +49,7 @@ func putDocument(w http.ResponseWriter, r *http.Request) {
 	}
 	jsonFile.Write(j)
 
-	o := map[string]uint64{"id": id}
+	o := map[string]string{"id": strconv.FormatUint(id, 10)}
 	js, err := json.Marshal(o)
 	if err != nil {
 		http.Error(w, "Could not create the response JSON.", http.StatusInternalServerError)
